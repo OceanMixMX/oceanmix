@@ -75,11 +75,15 @@ img{ max-width:100%; display:block; }
   backdrop-filter: blur(14px);
   background: rgba(7,22,36,0.55);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s ease;
 }
-.nav-wrap .brand-text,
-.nav-wrap .nav-links a{
+.nav-wrap.nav-dark .brand-text,
+.nav-wrap.nav-dark .nav-links a:not(.btn){
   color: #071624;
   text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+}
+.nav-wrap.nav-dark{
+  background: rgba(255,255,255,0.75);
 }
 
 .nav{
