@@ -73,7 +73,7 @@ img{ max-width:100%; display:block; }
   top:0;
   z-index:50;
   backdrop-filter: blur(14px);
-  background: rgba(7,22,36,0.55);
+  background: rgba(7,22,36,0.92);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
