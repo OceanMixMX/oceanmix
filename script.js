@@ -28,26 +28,6 @@
   }
 
   // =========================================================
-  // NAVBAR COLOR CHANGE ON HERO
-  // =========================================================
-  const navWrap = document.querySelector('.nav-wrap');
-  const hero = document.querySelector('.hero');
-
-  if (navWrap && hero) {
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navWrap.classList.add('nav-dark');
-        } else {
-          navWrap.classList.remove('nav-dark');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    heroObserver.observe(hero);
-  }
-
-  // =========================================================
   // REVEAL ON SCROLL (Intersection Observer)
   // =========================================================
   const reveals = document.querySelectorAll('.reveal');
