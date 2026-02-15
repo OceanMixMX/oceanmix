@@ -207,6 +207,35 @@
   }
 
   // =========================================================
+  // ACTIVE NAV LINK ON SCROLL
+  // =========================================================
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[data-link]:not(.btn)');
+
+  if (sections.length && navAnchors.length && 'IntersectionObserver' in window) {
+    const activateLink = (id) => {
+      navAnchors.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href.endsWith('#' + id)) {
+          a.classList.add('nav-active');
+        } else {
+          a.classList.remove('nav-active');
+        }
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activateLink(entry.target.id);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  }
+
+  // =========================================================
   // SMOOTH SCROLL FOR NAV LINKS
   // =========================================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
