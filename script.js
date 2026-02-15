@@ -263,10 +263,11 @@
   // =========================================================
   document.querySelectorAll('[data-team-carousel]').forEach(carousel => {
     const cards = carousel.querySelectorAll('.team-card');
-    const visible = parseInt(carousel.getAttribute('data-team-carousel')) || 3;
+    const baseVisible = parseInt(carousel.getAttribute('data-team-carousel')) || 3;
+    let visible = window.innerWidth <= 560 ? 1 : window.innerWidth <= 820 ? 2 : baseVisible;
     const total = cards.length;
 
-    if (total <= visible) return;
+    if (total <= 1) return;
 
     let start = 0;
 
@@ -293,6 +294,14 @@
     if (nextBtn) nextBtn.addEventListener('click', advance);
     if (prevBtn) prevBtn.addEventListener('click', () => {
       start = (start - 1 + total) % total;
+      showWindow();
+    });
+
+    // Apply responsive on load
+    showWindow();
+
+    window.addEventListener('resize', () => {
+      visible = window.innerWidth <= 560 ? 1 : window.innerWidth <= 820 ? 2 : baseVisible;
       showWindow();
     });
 
