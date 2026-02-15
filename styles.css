@@ -689,45 +689,43 @@ section{
   font-size:0.95rem;
 }
 
-/* Lista de investigadores (viñetas bonitas) */
+/* Lista de investigadores (alineación perfecta) */
 .team-list{
   margin-top: 14px;
-  padding-left: 0;
+  padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  text-align: left;         /* para que no quede centrado raro */
-  max-width: 320px;         /* opcional: evita que quede muy ancho */
+  gap: 10px;
+  text-align: left;
+  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .team-list li{
-  position: relative;
-  padding-left: 18px;
+  display: flex;        
+  align-items: center;       
+  gap: 10px;
   font-size: 0.92rem;
   color: var(--muted);
-  line-height: 1.35;
+  line-height: 1.4;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .team-list li::before{
   content: "";
-  position: absolute;
-  left: 0;
-  top: 9px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--sea), var(--aqua));
-  box-shadow: 0 0 0 4px rgba(138,173,63,0.12);
+  background: var(--algae);    
+  flex-shrink: 0;
 }
 
-/* pequeño hover “interactivo” */
+/* Hover elegante */
 .team-list li:hover{
   color: var(--text);
   transform: translateX(2px);
-  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 /* =========================================================
