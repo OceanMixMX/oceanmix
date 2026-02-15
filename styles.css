@@ -4,15 +4,15 @@
    ========================================================= */
 
 :root{
-  --bg: #1a3455;
-  --bg2:#1e3a5e;
+  --bg: #2b4a7a;
+  --bg2:#325285;
   --card: rgba(255,255,255,0.06);
   --card2: rgba(255,255,255,0.08);
   --stroke: rgba(255,255,255,0.12);
   --text: rgba(255,255,255,0.92);
   --muted: rgba(255,255,255,0.72);
 
-  --ocean1:#1a3a5c;
+  --ocean1:#2d4c7c;
   --ocean2:#24567a;
   --aqua:#6b8a35;
   --sea:#8aad3f;
@@ -143,7 +143,7 @@ img{ max-width:100%; display:block; }
   top:0;
   z-index:50;
   backdrop-filter: blur(14px);
-  background: rgba(26,52,85,0.75);
+  background: rgba(43,74,122,0.85);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
