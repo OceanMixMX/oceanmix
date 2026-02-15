@@ -258,4 +258,50 @@
     });
   });
 
+  // =========================================================
+  // TEAM CAROUSEL (sliding window of 3, circular)
+  // =========================================================
+  document.querySelectorAll('[data-team-carousel]').forEach(carousel => {
+    const cards = carousel.querySelectorAll('.team-card');
+    const visible = parseInt(carousel.getAttribute('data-team-carousel')) || 3;
+    const total = cards.length;
+
+    if (total <= visible) return;
+
+    let start = 0;
+
+    const showWindow = () => {
+      cards.forEach(c => {
+        c.classList.remove('active');
+        c.style.order = '';
+      });
+      for (let i = 0; i < visible; i++) {
+        const card = cards[(start + i) % total];
+        card.classList.add('active');
+        card.style.order = i;
+      }
+    };
+
+    const advance = () => {
+      start = (start + 1) % total;
+      showWindow();
+    };
+
+    const prevBtn = carousel.querySelector('.team-prev');
+    const nextBtn = carousel.querySelector('.team-next');
+
+    if (nextBtn) nextBtn.addEventListener('click', advance);
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      start = (start - 1 + total) % total;
+      showWindow();
+    });
+
+    let autoPlay = setInterval(advance, 8000);
+
+    carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    carousel.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(advance, 8000);
+    });
+  });
+
 })();
