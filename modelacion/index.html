@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelación Numérica | OceanMix</title>
+  <title>Modelación numérica | OceanMix</title>
   <meta name="description" content="Modelación numérica aplicada a sistemas costeros y marinos. Simulación de corrientes y transporte de contaminantes con el modelo FVCOM." />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -20,132 +20,6 @@
     gtag('js', new Date());
     gtag('config', 'G-ZH3NKCJBCL');
   </script>
-
-  <style>
-    .mod-hero {
-      padding: 120px 0 60px;
-      text-align: center;
-    }
-    .mod-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.15;
-      margin: 16px 0 20px;
-    }
-    .mod-hero .lead {
-      max-width: 680px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .mod-section {
-      padding: 60px 0;
-    }
-
-    .mod-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--sea);
-      margin-bottom: 10px;
-    }
-
-    .mod-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin: 0 0 12px;
-    }
-
-    .mod-section p {
-      color: var(--muted);
-      max-width: 680px;
-    }
-
-    /* GIF — layout dos columnas: texto + imagen */
-    .gif-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      margin-top: 40px;
-    }
-    .gif-text p {
-      color: var(--muted);
-      margin: 0;
-    }
-    .gif-frame {
-      border-radius: var(--radius2);
-      overflow: hidden;
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      background: rgba(0,0,0,0.3);
-    }
-    .gif-frame img {
-      width: 100%;
-      display: block;
-      max-height: 520px;
-      object-fit: contain;
-    }
-    .gif-caption {
-      padding: 10px 16px;
-      background: rgba(255,255,255,0.04);
-      font-size: 0.82rem;
-      color: var(--muted);
-      border-top: 1px solid var(--stroke);
-      text-align: center;
-    }
-
-    /* Mesh grid */
-    .mesh-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 36px;
-    }
-    .mesh-item {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow2);
-      background: rgba(0,0,0,0.25);
-    }
-    .mesh-item img {
-      width: 100%;
-      height: 400px;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.4s ease;
-      padding: 12px;
-      box-sizing: border-box;
-    }
-    .mesh-item img:hover {
-      transform: scale(1.02);
-    }
-    .mesh-item figcaption {
-      padding: 10px 16px;
-      font-size: 0.83rem;
-      color: var(--muted);
-      border-top: 1px solid var(--stroke);
-      text-align: center;
-    }
-
-    @media (max-width: 820px) {
-      .gif-row {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .gif-frame img {
-        max-height: 400px;
-      }
-    }
-    @media (max-width: 620px) {
-      .mesh-grid {
-        grid-template-columns: 1fr;
-      }
-      .mesh-item img {
-        height: 300px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -181,65 +55,71 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="mod-hero">
-      <div class="container reveal">
+    <!-- HERO COMPACTO -->
+    <section class="team-hero">
+      <div class="container center">
         <div class="pill">
           <span class="dot"></span>
           Servicios · OceanMix
         </div>
         <h1>Modelación numérica<br>costera y marina</h1>
-        <p class="lead">
-          Simulación de la dinámica oceánica del Golfo de California mediante el modelo
-          FVCOM, con mallas no estructuradas que capturan la complejidad de costas, islas y batimetría.
+        <p class="lead" style="margin:0 auto; text-align:center;">
+          Simulación de la dinámica oceánica del Golfo de California mediante el modelo FVCOM, con mallas no estructuradas que capturan la complejidad de costas, islas y batimetría.
         </p>
       </div>
     </section>
 
-    <!-- GIF CORRIENTES -->
-    <section class="mod-section">
-      <div class="container reveal">
-        <div class="gif-row">
-          <div class="gif-text">
-            <p class="mod-label">Dinámica de corrientes</p>
-            <h2>Corrientes del Golfo de California</h2>
-            <p>
-              Simulación de corrientes superficiales calculadas con el modelo numérico FVCOM
-              (<em>Finite Volume Community Ocean Model</em>). El modelo resuelve las ecuaciones
-              de movimiento del océano sobre una malla no estructurada de elementos triangulares,
-              permitiendo representar con precisión la circulación en zonas costeras complejas.
+    <!-- CORRIENTES -->
+    <section class="section">
+      <div class="container">
+        <h2 class="team-section-title reveal"><span>Corrientes del Golfo de California</span></h2>
+        <div class="two-col two-col--text-wider reveal" style="align-items:center;">
+          <div>
+            <div class="pill">
+              <span class="dot"></span>
+              Dinámica oceánica
+            </div>
+            <h3 style="margin:14px 0 16px; font-size:1.35rem; color:var(--text); line-height:1.35;">
+              Simulación de corrientes superficiales con FVCOM
+            </h3>
+            <p class="muted" style="line-height:1.8; margin:0 0 14px;">
+              Calculadas con el modelo numérico FVCOM (<em>Finite Volume Community Ocean Model</em>),
+              que resuelve las ecuaciones de movimiento del océano sobre una malla no estructurada
+              de elementos triangulares.
+            </p>
+            <p class="muted" style="line-height:1.8; margin:0;">
+              Esto permite representar con precisión la circulación en zonas costeras
+              complejas — bahías, islas y canales — donde la batimetría y la geometría
+              del litoral modulan los flujos superficiales.
             </p>
           </div>
-          <div class="gif-frame">
+          <figure class="diagram-frame diagram-frame--md">
             <img src="images/corrientes_golfo_california.gif"
                  alt="Animación de corrientes superficiales del Golfo de California calculadas con FVCOM">
-            <div class="gif-caption">
-              Corrientes superficiales — Golfo de California · Modelo FVCOM
-            </div>
-          </div>
+            <figcaption>Corrientes superficiales — Golfo de California · Modelo FVCOM</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- MALLA NO ESTRUCTURADA -->
-    <section class="mod-section section-soft">
-      <div class="container reveal">
-        <p class="mod-label">Discretización del dominio</p>
-        <h2>Malla no estructurada FVCOM</h2>
-        <p>
+    <section class="section">
+      <div class="container">
+        <h2 class="team-section-title reveal"><span>Malla no estructurada FVCOM</span></h2>
+        <p class="reveal" style="text-align:center; color:var(--muted); max-width:760px; margin:0 auto;">
           FVCOM utiliza mallas de elementos finitos triangulares que se adaptan a geometrías
           costeras irregulares. La resolución aumenta en zonas de interés como bahías, lagunas
           y canales, sin sacrificar eficiencia computacional en el dominio abierto.
         </p>
 
-        <div class="mesh-grid">
-          <figure class="mesh-item">
+        <div class="diagram-grid reveal">
+          <figure class="diagram-frame diagram-frame--compact">
             <img src="images/fvcom_mesh_gc.png"
                  alt="Malla no estructurada FVCOM del Golfo de California"
                  loading="lazy">
             <figcaption>Malla del Golfo de California — vista general</figcaption>
           </figure>
-          <figure class="mesh-item">
+          <figure class="diagram-frame diagram-frame--compact">
             <img src="images/fvcom_mesh_blp.png"
                  alt="Detalle de la malla no estructurada FVCOM en Bahía de La Paz"
                  loading="lazy">
@@ -250,7 +130,7 @@
     </section>
 
     <!-- VOLVER -->
-    <section class="mod-section" style="padding-top: 20px; padding-bottom: 80px;">
+    <section class="section" style="padding-top:0;">
       <div class="container center">
         <a class="btn" href="/">Volver al inicio</a>
       </div>
@@ -260,8 +140,7 @@
       <div class="container footer-inner">
         <div class="foot-left">
           <div class="brand footer-brand">
-            <img class="brand-logo" src="../logo.jpeg" alt="OceanMix logo">
-            <span class="brand-text">OceanMix</span>
+            <img class="brand-logo" src="../logo.jpeg" alt="OceanMix logo"><span class="brand-text">OceanMix</span>
           </div>
           <p class="tiny muted">
             Ciencia aplicada para comunidades costeras · Baja California Sur

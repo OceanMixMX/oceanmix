@@ -1326,6 +1326,67 @@ footer{
 }
 
 /* =========================================================
+   DIAGRAM FRAMES (modelación / servicios)
+   ========================================================= */
+.diagram-frame{
+  margin:0;
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow2);
+  overflow:hidden;
+  transition:transform 0.3s ease, background 0.3s ease;
+}
+.diagram-frame:hover{
+  transform:translateY(-4px);
+  background:var(--card2);
+}
+.diagram-frame img{
+  width:100%;
+  display:block;
+  max-height:520px;
+  object-fit:contain;
+  background:rgba(255,255,255,0.04);
+  padding:16px;
+}
+.diagram-frame figcaption{
+  padding:14px 20px;
+  font-size:0.88rem;
+  color:var(--muted);
+  text-align:center;
+  border-top:1px solid var(--stroke);
+  font-style:italic;
+}
+
+.diagram-frame--compact img{
+  max-height:380px;
+  padding:14px;
+}
+.diagram-frame--md img{
+  max-height:440px;
+}
+
+.two-col--text-wider{
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.diagram-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 620px));
+  gap:32px;
+  justify-content:center;
+  margin-top:2.5rem;
+}
+
+@media (max-width: 820px){
+  .diagram-grid{ grid-template-columns:1fr; justify-content:stretch; }
+  .diagram-frame img{ max-height:360px; }
+  .diagram-frame--compact img{ max-height:320px; }
+  .diagram-frame--md img{ max-height:340px; }
+  .two-col--text-wider{ grid-template-columns:1fr; }
+}
+
+/* =========================================================
    MOBILE NAV
    ========================================================= */
 .nav-toggle{
