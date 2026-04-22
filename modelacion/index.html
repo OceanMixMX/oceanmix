@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelación numérica | OceanMix</title>
+  <meta name="description" content="Modelación numérica aplicada a sistemas costeros y marinos. Simulación de corrientes y transporte de contaminantes con el modelo FVCOM." />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH3NKCJBCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZH3NKCJBCL');
+  </script>
+</head>
+
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="OceanMix inicio">
+        <img class="brand-logo" src="../logo.jpeg" alt="OceanMix logo">
+        <span class="brand-text">OceanMix</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-navlinks>
+        <a href="/#historia" data-link>La historia</a>
+        <a href="/#crisis" data-link>La crisis</a>
+        <a href="/#quees" data-link>¿Qué es?</a>
+        <a href="/#como" data-link>Cómo actuamos</a>
+        <a href="/#aprovechamiento" data-link>Aprovechamiento</a>
+        <a href="/#galeria" data-link>Galería</a>
+        <a href="/#faq" data-link>FAQ</a>
+        <a href="/equipo/" data-link>Quiénes somos</a>
+        <a href="/modelacion/" data-link class="nav-active">Modelación</a>
+        <a href="/#contacto" class="btn btn-sm" data-link>Colabora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO COMPACTO -->
+    <section class="team-hero">
+      <div class="container center">
+        <div class="pill">
+          <span class="dot"></span>
+          Servicios · OceanMix
+        </div>
+        <h1>Modelación numérica<br>costera y marina</h1>
+        <p class="lead" style="margin:0 auto; text-align:center;">
+          Simulación de la dinámica oceánica del Golfo de California mediante el modelo FVCOM, con mallas no estructuradas que capturan la complejidad de costas, islas y batimetría.
+        </p>
+      </div>
+    </section>
+
+    <!-- CORRIENTES -->
+    <section class="section">
+      <div class="container">
+        <h2 class="team-section-title reveal"><span>Corrientes del Golfo de California</span></h2>
+        <div class="two-col two-col--text-wider reveal" style="align-items:center;">
+          <div>
+            <div class="pill">
+              <span class="dot"></span>
+              Dinámica oceánica
+            </div>
+            <h3 style="margin:14px 0 16px; font-size:1.35rem; color:var(--text); line-height:1.35;">
+              Simulación de corrientes superficiales con FVCOM
+            </h3>
+            <p class="muted" style="line-height:1.8; margin:0 0 14px;">
+              Calculadas con el modelo numérico FVCOM (<em>Finite Volume Community Ocean Model</em>),
+              que resuelve las ecuaciones de movimiento del océano sobre una malla no estructurada
+              de elementos triangulares.
+            </p>
+            <p class="muted" style="line-height:1.8; margin:0;">
+              Esto permite representar con precisión la circulación en zonas costeras
+              complejas — bahías, islas y canales — donde la batimetría y la geometría
+              del litoral modulan los flujos superficiales.
+            </p>
+          </div>
+          <figure class="diagram-frame diagram-frame--md">
+            <img src="images/corrientes_golfo_california.gif"
+                 alt="Animación de corrientes superficiales del Golfo de California calculadas con FVCOM">
+            <figcaption>Corrientes superficiales — Golfo de California · Modelo FVCOM</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- MALLA NO ESTRUCTURADA -->
+    <section class="section">
+      <div class="container">
+        <h2 class="team-section-title reveal"><span>Malla no estructurada FVCOM</span></h2>
+        <p class="reveal" style="text-align:center; color:var(--muted); max-width:760px; margin:0 auto;">
+          FVCOM utiliza mallas de elementos finitos triangulares que se adaptan a geometrías
+          costeras irregulares. La resolución aumenta en zonas de interés como bahías, lagunas
+          y canales, sin sacrificar eficiencia computacional en el dominio abierto.
+        </p>
+
+        <div class="diagram-grid reveal">
+          <figure class="diagram-frame diagram-frame--compact">
+            <img src="images/fvcom_mesh_gc.png"
+                 alt="Malla no estructurada FVCOM del Golfo de California"
+                 loading="lazy">
+            <figcaption>Malla del Golfo de California — vista general</figcaption>
+          </figure>
+          <figure class="diagram-frame diagram-frame--compact">
+            <img src="images/fvcom_mesh_blp.png"
+                 alt="Detalle de la malla no estructurada FVCOM en Bahía de La Paz"
+                 loading="lazy">
+            <figcaption>Detalle de la malla en Bahía de La Paz</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLVER -->
+    <section class="section" style="padding-top:0;">
+      <div class="container center">
+        <a class="btn" href="/">Volver al inicio</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="foot-left">
+          <div class="brand footer-brand">
+            <img class="brand-logo" src="../logo.jpeg" alt="OceanMix logo"><span class="brand-text">OceanMix</span>
+          </div>
+          <p class="tiny muted">
+            Ciencia aplicada para comunidades costeras · Baja California Sur
+          </p>
+        </div>
+        <div class="foot-right tiny muted">
+          <span>© 2026</span>
+          <span class="sep">·</span>
+          <a href="/">Inicio</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
