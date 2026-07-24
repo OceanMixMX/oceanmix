@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visión por Computadora en Pesquerías | OceanMix</title>
+  <meta name="description" content="Identificación automática de especies capturadas a bordo mediante visión por computadora. Detección zero-shot con OWLv2 y clasificación con ConvNeXt, validada contra el benchmark de The Nature Conservancy." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Visión por Computadora en Pesquerías | OceanMix" />
+  <meta property="og:description" content="Identificación automática de especies capturadas a bordo, sin una sola caja anotada a mano." />
+  <meta property="og:image" content="/pesquerias/images/deteccion_owlv2.gif" />
+  <meta property="og:url" content="https://oceanmix.com.mx/pesquerias/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH3NKCJBCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZH3NKCJBCL');
+  </script>
+</head>
+
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="OceanMix inicio">
+        <img class="brand-logo" src="/logo.jpeg" alt="OceanMix logo">
+        <span class="brand-text">OceanMix</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-navlinks>
+        <a href="/#quienes" data-link>Quiénes somos</a>
+        <a href="/#lineas" data-link>Líneas de trabajo</a>
+        <a href="/#proyectos" data-link class="nav-active">Proyectos</a>
+        <a href="/equipo/" data-link>Equipo</a>
+        <a href="/#contacto" class="btn btn-sm" data-link>Colabora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="project-hero project-hero--solid">
+      <div class="container reveal">
+        <a class="back-link" href="/#proyectos">← Volver a proyectos</a>
+        <div class="pill">
+          <span class="dot"></span>
+          Proyecto · Visión por computadora
+        </div>
+        <h1>Visión por Computadora<br>en Pesquerías</h1>
+        <p class="lead">
+          Identificación automática de la especie capturada a partir de cámaras a bordo,
+          sin una sola caja dibujada a mano. Un sistema de monitoreo pesquero que aprende
+          a mirar el pez, no el barco.
+        </p>
+        <div class="project-meta">
+          <div class="project-meta-item">
+            <span class="k">Localización</span>
+            <span class="v">OWLv2 zero-shot</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Clasificación</span>
+            <span class="v">ConvNeXt</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Especies</span>
+            <span class="v">8 categorías</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Imágenes</span>
+            <span class="v">16,930</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL PROBLEMA -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>El problema</span></h2>
+          <p class="lead-sm">
+            El monitoreo pesquero depende de observadores humanos a bordo: caro, escaso y
+            imposible de escalar. Las cámaras ya están instaladas en muchas flotas; lo que
+            falta es leerlas.
+          </p>
+        </div>
+
+        <div class="two-col" style="margin-top:3rem;">
+          <div class="reveal">
+            <p class="mod-label">Por qué es difícil</p>
+            <h3>El modelo aprende el barco, no el pez</h3>
+            <p class="muted">
+              Las imágenes de cubierta vienen de un puñado de embarcaciones, y cada una
+              pesca de forma distinta. Un modelo entrenado sin cuidado no aprende a
+              distinguir especies: aprende a reconocer la cubierta, y con eso adivina la
+              especie más probable de ese barco. Funciona en el laboratorio y colapsa en
+              cuanto se despliega en una flota nueva.
+            </p>
+            <p class="muted">
+              Lo medimos sobre este conjunto de datos: agrupando las imágenes por
+              embarcación, <strong>saber en qué barco fue tomada una foto entrega el
+              50 % de la información sobre qué especie contiene</strong>. Es un atajo que
+              el modelo tomará si se lo permitimos.
+            </p>
+            <div class="callout">
+              <h3>La consecuencia</h3>
+              <p>
+                Una validación mal diseñada, que reparte imágenes del mismo barco entre
+                entrenamiento y prueba, reporta un error diez veces menor que el real.
+                Toda nuestra validación separa embarcaciones completas.
+              </p>
+            </div>
+          </div>
+          <div class="media reveal">
+            <img src="images/prior_shift.png"
+                 alt="Comparación de la distribución de especies entre el conjunto de entrenamiento y el de prueba">
+            <div class="media-caption">
+              La mezcla de especies cambia entre flotas: el patudo (BET) pesa el doble y
+              el tiburón (SHARK) cae a una quinta parte
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL MÉTODO -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>El método</span></h2>
+          <p class="lead-sm">
+            Primero encontrar el pez, después identificarlo. Separar esos dos pasos es lo
+            que hace que el sistema sobreviva al cambio de flota.
+          </p>
+        </div>
+
+        <div class="reveal" style="max-width:760px; margin:3rem auto 0; text-align:center;">
+          <p class="mod-label">Paso 1 · Localización sin anotaciones</p>
+          <h3>El pez ocupa el 3 % de la imagen</h3>
+          <p class="muted">
+            Usamos un detector de vocabulario abierto (OWLv2) al que simplemente se le pide
+            <em>«un pez»</em> en lenguaje natural. No requiere ni una sola caja anotada a
+            mano: reconoce el objeto sin haber visto jamás este conjunto de datos. Sobre la
+            imagen completa, el animal ocupa una mediana del <strong>2.96 % del cuadro</strong>
+            — el resto es cubierta, redes, tripulación y mar.
+          </p>
+        </div>
+
+        <div class="media reveal" style="max-width:860px; margin:2.5rem auto 0;">
+          <img src="images/deteccion_owlv2.gif"
+               alt="Animación: el detector localiza el pez en la imagen completa de cubierta y el encuadre se acerca hasta el recorte">
+          <div class="media-caption">
+            Detección y recorte automáticos sobre imágenes reales de cubierta ·
+            albacora, patudo, dorado y opah
+          </div>
+        </div>
+
+        <div class="cards three" style="margin-top:3.5rem;">
+          <article class="card reveal">
+            <h3>Cero anotaciones</h3>
+            <p>
+              El detector funciona por descripción en lenguaje natural. Las miles de horas
+              de etiquetado manual que exigía el enfoque clásico dejan de ser necesarias.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Mejora en flotas nuevas</h3>
+            <p>
+              La tasa de detección no se degrada al cambiar de embarcación: sube del 74 %
+              en las imágenes conocidas al <strong>83 % en la flota nunca vista</strong>.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Detecta el vacío</h3>
+            <p>
+              La confianza del detector distingue por sí sola las imágenes sin captura,
+              con un 68 % de acierto — por encima del sistema ganador del certamen.
+            </p>
+          </article>
+        </div>
+
+        <div class="two-col" style="margin-top:4.5rem;">
+          <div class="reveal">
+            <p class="mod-label">Paso 2 · Identificación de especie</p>
+            <h3>Clasificar el recorte, no la escena</h3>
+            <p class="muted">
+              Sobre el recorte entrenamos una red convolucional moderna (ConvNeXt). Al
+              eliminar el contexto de la cubierta, el atajo desaparece: el modelo ya no
+              puede adivinar por el barco y se ve obligado a mirar el animal.
+            </p>
+            <p class="muted">
+              El efecto es la mayor ganancia de todo el sistema, y se sostiene en las cinco
+              particiones de validación sin excepción. El resto —combinar dos vistas,
+              incorporar la evidencia del detector, calibrar— aporta mejoras reales pero
+              menores.
+            </p>
+          </div>
+          <div class="media reveal">
+            <img src="images/ablacion.png"
+                 alt="Gráfico de barras del aporte de cada componente del sistema al error final">
+            <div class="media-caption">
+              Aporte de cada componente · el recorte al pez concentra la mayor parte de la mejora
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Resultados</span></h2>
+          <p class="lead-sm">
+            Medimos el sistema contra un estándar público: el certamen de monitoreo
+            pesquero de The Nature Conservancy, donde 2,293 equipos compitieron sobre
+            exactamente estos datos.
+          </p>
+        </div>
+
+        <div class="media reveal" style="max-width:820px; margin:3rem auto 0;">
+          <img src="images/leaderboard.gif"
+               alt="Animación que muestra la posición de nuestro resultado entre los primeros equipos del certamen">
+          <div class="media-caption">
+            Posición del envío entre los mejores equipos del certamen · menor es mejor
+          </div>
+        </div>
+
+        <div class="reveal" style="max-width:760px; margin:3rem auto 0; text-align:center;">
+          <p class="muted">
+            El sistema alcanza un error de <strong>1.32445</strong> sobre el conjunto de
+            prueba reservado, que sitúa el resultado en la <strong>duodécima posición</strong>
+            de la tabla final, dentro del rango que obtuvo medalla de oro.
+          </p>
+          <p class="tiny muted">
+            Nota: el certamen cerró en 2017. Nuestro envío es posterior y se evalúa con los
+            mismos datos reservados y la misma métrica, pero no figura en la tabla oficial
+            ni constituye una posición competitiva. La comparación es una referencia técnica,
+            no un resultado de competencia.
+          </p>
+        </div>
+
+        <div class="cards three" style="margin-top:3.5rem;">
+          <article class="card reveal">
+            <h3>Patudo (BET)</h3>
+            <p>
+              La especie que ningún equipo resolvió, por su parecido con la albacora.
+              Nuestro sistema la identifica <strong>casi cinco veces mejor</strong> que la
+              solución ganadora, y representa el 11 % de las capturas evaluadas.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Imágenes sin captura</h3>
+            <p>
+              Distinguir cuándo <em>no</em> hay pez es esencial para no inflar los conteos.
+              Acertamos el <strong>68 %</strong>, frente al 62 % del sistema ganador, apoyados
+              en el detector.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Sin anotación manual</h3>
+            <p>
+              Los equipos de 2017 anotaron miles de cajas a mano. Nuestro sistema no usó
+              ninguna: la localización es completamente automática.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LA LECCIÓN -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Lo que aprendimos</span></h2>
+          <p class="lead-sm">
+            El hallazgo más útil del proyecto no es el resultado, sino la distancia entre
+            lo que la validación prometía y lo que la realidad entregó.
+          </p>
+        </div>
+
+        <div class="two-col" style="margin-top:3rem;">
+          <div class="reveal">
+            <p class="mod-label">Honestidad metodológica</p>
+            <h3>Toda validación es optimista</h3>
+            <p class="muted">
+              Nuestra validación interna —ya diseñada con cuidado, separando embarcaciones
+              completas— anticipaba un error de 1.14. El valor real sobre la flota
+              desconocida fue 1.32. <strong>Una brecha de 0.18</strong> que ninguna
+              precaución interna logró cerrar.
+            </p>
+            <p class="muted">
+              Esa distancia es la medida honesta de cuánto se degrada un modelo al salir al
+              mundo, y es exactamente el tipo de número que hay que conocer antes de
+              desplegar un sistema en operación real. Reportarlo importa tanto como el
+              resultado.
+            </p>
+            <div class="callout">
+              <h3>Aplicación en OceanMix</h3>
+              <p>
+                Este marco de validación —separar por sitio, por campaña o por embarcación,
+                nunca al azar— es el mismo que aplicamos a los modelos de monitoreo de
+                macroalgas y a la calibración de modelos numéricos.
+              </p>
+            </div>
+          </div>
+          <div class="media reveal">
+            <img src="images/brecha_cv.gif"
+                 alt="Animación que muestra la diferencia entre el error estimado en validación y el error real medido">
+            <div class="media-caption">
+              Lo que la validación prometía frente a lo que el conjunto reservado entregó
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICACIONES -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Hacia dónde</span></h2>
+          <p class="lead-sm">
+            La capacidad desarrollada es transferible a los sistemas costeros donde trabajamos.
+          </p>
+        </div>
+
+        <div class="cards three" style="margin-top:3rem;">
+          <article class="card reveal">
+            <h3>Monitoreo de captura</h3>
+            <p>
+              Registro automático de especie y volumen a bordo, para complementar el trabajo
+              de observadores y ampliar la cobertura de las flotas.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Especies invasoras</h3>
+            <p>
+              El mismo enfoque de detección sin anotaciones aplica al reconocimiento de
+              macroalgas y organismos no nativos en imagen submarina y aérea.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Series de largo plazo</h3>
+            <p>
+              Procesar archivos históricos de video y fotografía permite reconstruir series
+              de tiempo que hoy están guardadas pero sin leer.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMÁGENES -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Imágenes</span></h2>
+          <p class="lead-sm">Visualizaciones del sistema y de sus resultados.</p>
+        </div>
+
+        <div class="gallery reveal" data-gallery>
+          <figure class="g-item"><img src="images/ablacion.png" alt="Aporte de cada componente del sistema" loading="lazy"></figure>
+          <figure class="g-item"><img src="images/prior_shift.png" alt="Cambio de la distribución de especies entre flotas" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLVER -->
+    <section class="section" style="padding-top:0;">
+      <div class="container center">
+        <a class="btn" href="/#proyectos">Ver otros proyectos</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="foot-left">
+          <div class="brand footer-brand">
+            <img class="brand-logo" src="/logo.jpeg" alt="OceanMix logo">
+            <span class="brand-text">OceanMix</span>
+          </div>
+          <p class="tiny muted">
+            Ciencia aplicada para sistemas costeros y marinos · Baja California Sur
+          </p>
+        </div>
+        <div class="foot-right tiny muted">
+          <span>© 2026</span>
+          <span class="sep">·</span>
+          <a href="/">Inicio</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" data-lightbox aria-hidden="true">
+      <button class="lb-close" aria-label="Cerrar">✕</button>
+      <button class="lb-prev" aria-label="Anterior">‹</button>
+      <button class="lb-next" aria-label="Siguiente">›</button>
+      <img class="lb-img" alt="Imagen ampliada">
+      <div class="lb-caption tiny muted"></div>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
