@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identificación Automática de Plancton | OceanMix</title>
+  <meta name="description" content="Un sistema que identifica 121 tipos de plancton en imágenes submarinas, para convertir en datos los millones de fotografías que hoy nadie alcanza a revisar." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Identificación Automática de Plancton | OceanMix" />
+  <meta property="og:description" content="121 tipos de plancton identificados automáticamente en imágenes submarinas." />
+  <meta property="og:image" content="https://oceanmix.com.mx/plancton/images/especies.png" />
+  <meta property="og:url" content="https://oceanmix.com.mx/plancton/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH3NKCJBCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZH3NKCJBCL');
+  </script>
+</head>
+
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="OceanMix inicio">
+        <img class="brand-logo" src="/logo.jpeg" alt="OceanMix logo">
+        <span class="brand-text">OceanMix</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-navlinks>
+        <a href="/#quienes" data-link>Quiénes somos</a>
+        <a href="/#lineas" data-link>Líneas de trabajo</a>
+        <a href="/#proyectos" data-link class="nav-active">Proyectos</a>
+        <a href="/equipo/" data-link>Equipo</a>
+        <a href="/#contacto" class="btn btn-sm" data-link>Colabora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="project-hero project-hero--solid">
+      <div class="container reveal">
+        <a class="back-link" href="/#proyectos">← Volver a proyectos</a>
+        <div class="pill">
+          <span class="dot"></span>
+          Proyecto · Plancton
+        </div>
+        <h1>Identificación<br>Automática de Plancton</h1>
+        <p class="lead">
+          El plancton es la base de toda la red trófica marina y el primer sistema que
+          responde cuando el océano cambia. Los instrumentos que lo fotografían generan
+          millones de imágenes al día. Construimos el sistema que las identifica.
+        </p>
+        <div class="project-meta">
+          <div class="project-meta-item">
+            <span class="k">Categorías</span>
+            <span class="v">121 tipos</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Grupos taxonómicos</span>
+            <span class="v">35 linajes</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Imágenes procesadas</span>
+            <span class="v">160,736</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Resolución del instrumento</span>
+            <span class="v">63 µm por píxel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL PROBLEMA -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>El problema</span></h2>
+          <p class="lead-sm">
+            Se sabe fotografiar el plancton mucho mejor de lo que se sabe identificarlo.
+            El cuello de botella no está en el mar: está en el escritorio.
+          </p>
+        </div>
+
+        <div class="two-col" style="margin-top:3rem;">
+          <div class="reveal">
+            <p class="mod-label">La brecha</p>
+            <h3>Un taxónomo no alcanza</h3>
+            <p class="muted">
+              Un instrumento remolcado como el que produjo estas imágenes atraviesa hasta
+              160 litros de agua por segundo y recorta cada organismo que encuentra. Una
+              sola campaña deja cientos de miles de recortes.
+            </p>
+            <p class="muted">
+              Identificarlos exige una persona con formación taxonómica, y hay pocas. El
+              resultado es conocido: campañas completas archivadas sin procesar, y series
+              de tiempo que nunca se construyen porque nadie puede revisarlas a mano.
+            </p>
+            <div class="callout">
+              <h3>Lo que resolvemos</h3>
+              <p>
+                Convertir esas imágenes en un conteo estructurado por tipo de organismo,
+                de forma automática, para que el monitoreo deje de depender de cuántos
+                especialistas se puedan contratar.
+              </p>
+            </div>
+          </div>
+          <div class="media reveal">
+            <img style="object-fit:contain;max-height:none;mask-image:none;-webkit-mask-image:none;" src="images/desbalance.png" width="1081" height="598"
+                 alt="Gráfico: la categoría más común tiene 1,979 ejemplos y la más rara solo 9">
+            <div class="media-caption">
+              Doce de las 121 categorías tienen menos de 20 ejemplos para aprender.
+              El desbalance es de 220 a 1
+            </div>
+          </div>
+        </div>
+
+        <div class="media reveal" style="max-width:940px; margin:4rem auto 0;">
+          <img style="object-fit:contain;max-height:none;mask-image:none;-webkit-mask-image:none;" src="images/especies.png" width="1373" height="1088"
+               alt="Mosaico de 24 tipos de plancton: medusas, copépodos, quetognatos, larvas de peces, protistas y detritos">
+          <div class="media-caption">
+            Veinticuatro de las 121 categorías, mostradas a su tamaño relativo real ·
+            de un protista de 3 mm a una medusa de 12
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Cómo funciona</span></h2>
+          <p class="lead-sm">
+            Tres propiedades del problema que el sistema aprovecha, y que un clasificador
+            genérico desperdicia.
+          </p>
+        </div>
+
+        <div class="two-col" style="margin-top:3.5rem;">
+          <div class="reveal">
+            <p class="mod-label">Primero · El tamaño es un dato</p>
+            <h3>Los píxeles son milímetros</h3>
+            <p class="muted">
+              El instrumento ilumina con luz colimada, así que el aumento óptico es
+              constante en todo el volumen que fotografía: un organismo ocupa el mismo
+              número de píxeles esté cerca o lejos del lente. El tamaño de la imagen
+              <em>es</em> el tamaño real del animal.
+            </p>
+            <p class="muted">
+              Medimos cuánto vale esa señal: el tamaño por sí solo, sin mirar el interior
+              de la imagen, ya explica el 15 % de la información necesaria para clasificar.
+              Redimensionar todo a un cuadro fijo —lo que hace cualquier sistema estándar—
+              tira esa información a la basura. Nosotros la extraemos antes y se la
+              entregamos al modelo por separado.
+            </p>
+          </div>
+          <div class="media reveal">
+            <img style="object-fit:contain;max-height:none;mask-image:none;-webkit-mask-image:none;" src="images/tamano.png" width="1081" height="598"
+                 alt="Gráfico de distribución de tamaños por categoría: los copépodos miden 3 mm y las medusas 12 mm">
+            <div class="media-caption">
+              Cada categoría ocupa un rango de tamaño distinto, y ese rango es información
+              biológica real
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-top:4rem;">
+          <div class="media reveal">
+            <img style="object-fit:contain;max-height:520px;mask-image:none;-webkit-mask-image:none;" src="images/rotacion.gif" width="483" height="514"
+                 alt="Animación: el mismo organismo girando, mostrando que no tiene una orientación natural">
+            <div class="media-caption">
+              El mismo quetognato en todas sus orientaciones posibles · ninguna es la
+              «correcta»
+            </div>
+          </div>
+          <div class="reveal">
+            <p class="mod-label">Segundo · No hay arriba</p>
+            <h3>La orientación es azar puro</h3>
+            <p class="muted">
+              Un organismo flotando atraviesa el campo de la cámara en cualquier ángulo. A
+              diferencia de una fotografía de un perro o un coche, aquí no existe una
+              orientación natural que el sistema pueda dar por supuesta.
+            </p>
+            <p class="muted">
+              El sistema se entrena viendo cada organismo en todos los ángulos, y al
+              clasificar promedia ocho vistas giradas y reflejadas de la misma imagen. Un
+              detalle que parece menor decide el resultado: el lienzo sobre el que se gira
+              es lo bastante grande para que ninguna rotación corte las puntas. En un
+              quetognato alargado, esas puntas son precisamente lo que lo distingue.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal" style="max-width:760px; margin:4rem auto 0; text-align:center;">
+          <p class="mod-label">Tercero · Medir la duda</p>
+          <h3>No basta con acertar</h3>
+          <p class="muted">
+            Para un ecólogo, «es un copépodo» y «es un copépodo con 60 % de confianza»
+            son datos distintos. Un sistema que acierta mucho pero se equivoca con
+            seguridad absoluta es inservible para estimar abundancias. Por eso el sistema
+            se evalúa por la calidad de sus probabilidades, no por su porcentaje de
+            aciertos, y se recalibra al final contra datos que nunca vio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO LO VALIDAMOS -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Cómo lo validamos</span></h2>
+          <p class="lead-sm">
+            Un sistema de monitoreo solo sirve si se sabe cuánto equivocarse espera. Estas
+            son las reglas que nos impusimos para poder decirlo.
+          </p>
+        </div>
+
+        <div class="cards three" style="margin-top:3rem;">
+          <article class="card reveal">
+            <h3>Probabilidades, no etiquetas</h3>
+            <p>
+              El sistema entrega una distribución completa sobre las 121 categorías y se
+              recalibra contra datos que nunca vio. Eso permite estimar abundancias con su
+              incertidumbre, no solo poner un nombre a cada imagen.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Cinco particiones cruzadas</h3>
+            <p>
+              Cada imagen se evalúa con un modelo que no la usó para entrenar. Todo lo que
+              medimos sale de ahí, nunca de los datos con los que el sistema aprendió.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Reproducible y barato</h3>
+            <p>
+              Dos modelos y unas horas de una sola tarjeta gráfica. El código completo
+              corre de principio a fin con un comando, sin pasos manuales que nadie pueda
+              repetir después.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICACIONES -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Dónde se aplica</span></h2>
+          <p class="lead-sm">
+            Identificar plancton automáticamente abre líneas que hoy están cerradas por
+            falta de manos.
+          </p>
+        </div>
+
+        <div class="cards three" style="margin-top:3rem;">
+          <article class="card reveal">
+            <h3>Pesquerías</h3>
+            <p>
+              Las larvas de peces del plancton son los adultos de dentro de tres años.
+              Contarlas es la forma más temprana de anticipar un reclutamiento bueno o
+              malo, antes de que llegue a la red.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Florecimientos nocivos</h3>
+            <p>
+              Detectar a tiempo la proliferación de ciertos grupos permite avisar a la
+              acuacultura y a la salud pública antes de que el evento sea visible desde la
+              costa.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Series de tiempo</h3>
+            <p>
+              Hay archivos de imágenes de campañas pasadas guardados sin procesar.
+              Reanalizarlos permite reconstruir cómo cambió la comunidad planctónica en
+              las últimas décadas.
+            </p>
+          </article>
+        </div>
+
+        <div class="reveal" style="max-width:760px; margin:4rem auto 0;">
+          <p class="mod-label">La misma capacidad, otro objetivo</p>
+          <h3>Del pez al plancton</h3>
+          <p class="muted">
+            Es el mismo problema que ya resolvimos para el monitoreo pesquero: hay
+            imágenes de sobra y nadie que las revise una por una. Cambia el organismo y
+            cambia la cámara, pero el método —localizar, identificar, y sobre todo
+            reportar la incertidumbre— se traslada.
+          </p>
+          <div class="callout">
+            <h3>Estado del desarrollo</h3>
+            <p>
+              Prototipo validado sobre 160,736 imágenes de un instrumento oceanográfico
+              real, con 121 categorías y su jerarquía taxonómica. El siguiente paso es
+              adaptarlo a imágenes de instrumentos que operan en aguas mexicanas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container center reveal">
+        <h2>¿Tienes imágenes de plancton sin procesar?</h2>
+        <p class="lead-sm" style="margin-bottom:2rem;">
+          Si tu grupo opera un instrumento de imagen submarina o tiene archivos históricos
+          esperando análisis, hablemos.
+        </p>
+        <a class="btn" href="/#contacto">Contactar a OceanMix</a>
+      </div>
+    </section>
+
+    <!-- VOLVER -->
+    <section class="section" style="padding-top:0;">
+      <div class="container center">
+        <a class="btn btn-ghost" href="/#proyectos">Ver otros proyectos</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="foot-left">
+          <div class="brand footer-brand">
+            <img class="brand-logo" src="/logo.jpeg" alt="OceanMix logo">
+            <span class="brand-text">OceanMix</span>
+          </div>
+          <p class="tiny muted">
+            Ciencia aplicada para sistemas costeros y marinos · Baja California Sur
+          </p>
+        </div>
+        <div class="foot-right tiny muted">
+          <span>© 2026</span>
+          <span class="sep">·</span>
+          <a href="/">Inicio</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
