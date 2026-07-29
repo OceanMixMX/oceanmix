@@ -78,16 +78,16 @@
             <span class="v">121 tipos</span>
           </div>
           <div class="project-meta-item">
-            <span class="k">Grupos taxonómicos</span>
-            <span class="v">35 linajes</span>
+            <span class="k">Aciertos</span>
+            <span class="v">80.8 %</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="k">Entre las 5 primeras</span>
+            <span class="v">98.0 %</span>
           </div>
           <div class="project-meta-item">
             <span class="k">Imágenes procesadas</span>
             <span class="v">160,736</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="k">Resolución del instrumento</span>
-            <span class="v">63 µm por píxel</span>
           </div>
         </div>
       </div>
@@ -172,9 +172,16 @@
             <p class="muted">
               Medimos cuánto vale esa señal: el tamaño por sí solo, sin mirar el interior
               de la imagen, ya explica el 15 % de la información necesaria para clasificar.
-              Redimensionar todo a un cuadro fijo —lo que hace cualquier sistema estándar—
-              tira esa información a la basura. Nosotros la extraemos antes y se la
-              entregamos al modelo por separado.
+              Así que lo extraemos de la imagen original y se lo entregamos al modelo
+              aparte, antes de que ningún redimensionado lo borre.
+            </p>
+            <p class="muted">
+              Con una salvedad que sólo se supo midiéndola: comparamos el sistema con y
+              sin ese dato explícito y la diferencia resultó indistinguible de cero. La
+              explicación más plausible es que el modelo ya lo estaba leyendo solo —un
+              recorte diminuto ampliado se ve borroso y uno grande reducido se ve nítido,
+              y esa textura delata el tamaño original. Lo dejamos porque no estorba y
+              porque hace explícito lo que si no queda escondido.
             </p>
           </div>
           <div class="media reveal">
@@ -228,8 +235,73 @@
       </div>
     </section>
 
-    <!-- CÓMO LO VALIDAMOS -->
+    <!-- DESEMPEÑO -->
     <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <h2 class="team-section-title"><span>Desempeño</span></h2>
+          <p class="lead-sm">
+            Todas las cifras salen de imágenes que el sistema no usó para entrenar.
+          </p>
+        </div>
+
+        <div class="cards three" style="margin-top:3rem;">
+          <article class="card reveal">
+            <h3>80.8 % de aciertos</h3>
+            <p>
+              La categoría exacta, entre 121 posibles. En el 98.0 % de los casos la
+              correcta está entre las cinco primeras que propone.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>91.0 % acierta el linaje</h3>
+            <p>
+              Cuando falla la especie exacta, más de la mitad de las veces se equivoca
+              dentro del mismo grupo taxonómico. No confunde una medusa con un detrito:
+              confunde dos quetognatos entre sí.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Sabe cuándo duda</h3>
+            <p>
+              Cuando el sistema declara 99 % de confianza acierta el 99.6 % de las veces;
+              cuando declara 41 % acierta el 40 %. La confianza que reporta es un número
+              con el que se puede contar, no una impresión.
+            </p>
+          </article>
+        </div>
+
+        <div class="media reveal" style="max-width:880px; margin:3.5rem auto 0;">
+          <img style="object-fit:contain;max-height:none;mask-image:none;-webkit-mask-image:none;"
+               src="images/ablacion.png" width="1127" height="672"
+               alt="Gráfico del aporte medido de cada componente: promediar vistas giradas, combinar modelos y calibrar">
+          <div class="media-caption">
+            Aporte medido de cada componente · promediar ocho vistas giradas de la misma
+            imagen es la mejora individual más grande y no cuesta un solo paso de
+            entrenamiento
+          </div>
+        </div>
+
+        <div class="reveal" style="max-width:760px; margin:2.5rem auto 0;">
+          <p class="muted">
+            El error no está repartido por igual. Doce de las 121 categorías concentran el
+            45 % del error total, y encabeza la lista la categoría literalmente llamada
+            «sin clasificar»: la bolsa donde los propios taxónomos dejaron lo que no
+            pudieron identificar. Las categorías raras, en cambio, casi no cuestan: las 33
+            con menos de 50 ejemplos son el 2.9 % de las imágenes y el 7.3 % del error.
+          </p>
+          <p class="muted">
+            Eso reordena el trabajo que sigue: no hace falta perseguir las categorías
+            raras, hace falta separar mejor las categorías hermanas que se parecen entre
+            sí, que es exactamente el problema que también tienen los especialistas
+            humanos revisando estas mismas imágenes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO LO VALIDAMOS -->
+    <section class="section section-soft">
       <div class="container">
         <div class="center reveal">
           <h2 class="team-section-title"><span>Cómo lo validamos</span></h2>
@@ -268,7 +340,7 @@
     </section>
 
     <!-- APLICACIONES -->
-    <section class="section section-soft">
+    <section class="section">
       <div class="container">
         <div class="center reveal">
           <h2 class="team-section-title"><span>Dónde se aplica</span></h2>
